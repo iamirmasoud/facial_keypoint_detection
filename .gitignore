@@ -135,3 +135,4 @@ captions.pt
 debug_script.py
 data/
 loss_log/
+*.avi
