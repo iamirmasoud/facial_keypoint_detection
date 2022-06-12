@@ -13,7 +13,7 @@ class Net(nn.Module):
         # Defining all the layers of this CNN, the only requirements are:
         # 1. This network takes in a square (same width and height), grayscale image as input
         # 2. It ends with a linear layer that represents the keypoints
-        # it's suggested that you make this last layer output 136 values, 2 for each of the 68 keypoint (x, y) pairs
+        # We make this last layer output 136 values, 2 for each of the 68 keypoint (x, y) pairs
 
         # default conv2d: in_channels, out_channels, kernel_size, stride=1, padding=0
         # default maxpool2d: kernel_size, stride=kernel_size, padding=0
@@ -56,7 +56,7 @@ class Net(nn.Module):
 
     def forward(self, x):
         # Defining the feedforward behavior of this model
-        # x is the input image and, as an example, here you may choose to include a pool/conv step:
+        # x is the input image and, as an example, here we may choose to include a pool/conv step:
 
         x = self.dropout1(self.pool1(F.elu(self.bn1(self.conv1(x)))))
         x = self.dropout2(self.pool2(F.elu(self.bn2(self.conv2(x)))))
@@ -73,7 +73,7 @@ class Net(nn.Module):
         return x
 
 
-# -------------------
+# ------------ More Complex Architectures -------
 
 
 # *** Conv2d output dimensions ***
@@ -81,7 +81,7 @@ class Net(nn.Module):
 # width_out = (width_in + 2*padding - dilation*(kernel_size - 1) - 1)/stride + 1
 # weights_out = height_out * width_out * channels_out
 #
-# With values: strid = 1, padding = 0, dilation = 1
+# With values: stride = 1, padding = 0, dilation = 1
 # height_out = height_in - kernel_size + 1
 # width_out = width_in - kernel_size + 1
 #

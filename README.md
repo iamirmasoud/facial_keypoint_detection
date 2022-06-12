@@ -72,15 +72,21 @@ unzip -n data/train-test-data.zip -d data
 
 ### Download the trained model
 
-You can use my pre-trained model for your own experimentation. To use it, [download](https://www.dropbox.com/s/peuk41xdy90z51o/keypoints_model.pt?raw=1) the model and place it in the subdirectory `models`.
+You can use my pre-trained model for your own experimentation. To use it, [download](https://www.dropbox.com/s/peuk41xdy90z51o/keypoints_model.pt?raw=1) the model and place it in a directory called `models`.
 
 
 ## Jupyter Notebooks
-The project is structured as a series of Jupyter notebooks that should be run in sequential order:
+The project is structured as a series of Jupyter Notebooks that should be run in sequential order:
 
 ### [1_Dataset_Exploration notebook](1_Dataset_Exploration.ipynb) 
 
-This notebook initializes the [COCO API](https://github.com/cocodataset/cocoapi) (the "pycocotools" library) used to access data from the MS COCO (Common Objects in Context) dataset, which is "commonly used to train and benchmark object detection, segmentation, and captioning algorithms."
+We'll load the images of faces and their keypoints and visualize them in this notebook. This set of image data has been extracted from the [YouTube Faces Dataset](https://www.cs.tau.ac.il/~wolf/ytfaces/), which includes videos of people in YouTube videos. These videos have been fed through some processing steps and turned into sets of image frames containing one face and the associated keypoints.
+
+This facial keypoints dataset consists of 5770 color images.
+
+- 3462 of these images are training images will be used to create a model to predict keypoints.
+- 2308 are test images, which will be used to test the accuracy of the model.
+
 
 ### [2_Training notebook](2_Training.ipynb) 
 
