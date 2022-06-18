@@ -1,5 +1,5 @@
 matplotlib~=3.5.2
-scikit-image
+scikit-image==0.19.2
 torch~=1.8.1
 torchvision~=0.9.1
 numpy~=1.21.6
